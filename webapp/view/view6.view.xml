@@ -1,0 +1,185 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ARCH_PM_UI5ARCH_PM_UI5.controller.view6"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" displayBlock="true">
+	<App>
+		<pages>
+			<Page title="Workorder {oid} Details"  showNavButton="true" navButtonPress="OnBack" id="page" enableScrolling="true" class="page">
+				<content>
+					<f:SimpleForm id="SimpleFormToolbar" editable="true" layout="ResponsiveGridLayout"  labelSpanXL="4" labelSpanL="3" labelSpanM="4"
+						labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2"
+						singleContainerFullSize="false" ariaLabelledBy="Title1">
+			<!--			<f:SimpleForm id="SimpleFormToolbar"-->
+			<!--editable="true"-->
+			<!--layout="ResponsiveGridLayout"-->
+			<!--title="Address"-->
+			<!--labelSpanXL="4"-->
+			<!--labelSpanL="4"-->
+			<!--labelSpanM="4"-->
+			<!--labelSpanS="12"-->
+			<!--adjustLabelSpan="false"-->
+			<!--emptySpanXL="0"-->
+			<!--emptySpanL="0"-->
+			<!--emptySpanM="0"-->
+			<!--emptySpanS="0"-->
+			<!--columnsXL="3"-->
+			<!--columnsL="2"-->
+			<!--columnsM="2"-->
+			<!--singleContainerFullSize="false" >-->
+			
+						<f:content>
+						
+											<core:Title text="Primary Details" />
+						<Label id="notiid" text="Order ID"/>
+						<Text id="name" text="{Orderid}" class='input'/>
+						<Label id="plant" text="Company Code"  />
+					<Text id="n" text="{CompCode}" class='input'/>
+						<Label id="bd" text="Workorder Date" />
+					<Text id="n1" text="{path:'EnterDate', type: 'sap.ui.model.type.Date', formatOptions: {source:{
+					
+
+pattern: 'dd-MM-yyyy'
+}}}" class='input'/>
+						<Label  text="Cost Center"  />
+					<Text id="n12" text="{Costcenter}" class='input'/>
+						<core:Title text="Secondary Details" />
+						<Label text="Currency" />
+						<Text  text="{Currency}" class='input'/>
+					
+						<Label  text="Manufacturing Work Center"  />
+						<Text  text="{MnWkCtr}" class='input'/>
+						<Label  text="Start Time"  />
+						<Text  text="{path:'ActualStartTime', type:'sap.ui.model.type.Time',formatOptions:{source:{
+						pattern:'kk:mm:ss a'}}}" class='input'/>
+						<Label text="Functional Location" />
+						<Text  text="{FunctLoc}" class='input'/>
+				
+						</f:content>
+						 
+					</f:SimpleForm>
+						<TileContainer id="container" tileDelete="handleTileDelete" tiles="">
+						<StandardTile icon="sap-icon://notes" number="" numberUnit="" title="" info=" GET OPERATIONS" press="onWorkOper" class="press" />
+						<StandardTile icon="sap-icon://activities" number="" numberUnit="" title="" info="GET COMPONNETS" press="onWorkComp" class="press" />
+						<StandardTile icon="sap-icon://notes" number="" numberUnit="" title="" info=" GET PARTNER" press="onWorkPatnr" class="press"/>
+						
+						
+					</TileContainer>
+				
+						<core:Fragment   fragmentName="ARCH_PM_UI5ARCH_PM_UI5.fragments.fragment" type="XML" />
+						
+						<Table id="Table" items="{/}" inset="true" visible="false">
+						<columns>
+							<Column width="3em">
+								<Text text="Activity"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Control Key"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Description"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Date"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Plant"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Status Text"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Work Center"/>
+							</Column>
+							<Column width="3rem" demandPopin="true">
+								<Text text="Objectclass"/>
+							</Column>
+							<!--<Column minScreenWidth="1370px" demandPopin="true" visible="true"/>-->
+						</columns>
+						<items >
+							<ColumnListItem>
+								<cells>
+									<Text text="{Activity}"/>
+									<Text text="{ControlKey}"/>
+									<Text text="{Description}"/>
+									<Text text="{EarlSchedFinDate}"/>
+									<Text text="{Plant}"/>
+									<Text text="{SystemStatusText}"/>
+									<Text text="{WorkCntr}"/>
+									<Text text="{Objectclass}"/>
+								
+									</cells>
+								</ColumnListItem>
+								</items>
+							</Table>
+							<Table id="PartnrTable" items="{/}" inset="true" visible="false">
+						<columns>
+							<Column width="3em">
+								<Text text="OrderId"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="PartnRole"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="PartnRoleOld"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Partner"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="PartnerOld"/>
+							</Column>
+						
+							<!--<Column minScreenWidth="1370px" demandPopin="true" visible="true"/>-->
+						</columns>
+						<items >
+							<ColumnListItem>
+								<cells>
+									<Text text="{OrderId}"/>
+									<Text text="{PartnRole}"/>
+									<Text text="{PartnRoleOld}"/>
+									<Text text="{Partner}"/>
+									<Text text="{PartnerOld}"/>
+								
+								
+									</cells>
+								</ColumnListItem>
+								</items>
+							</Table>
+							
+							<Table id="CompTable" items="{/}" inset="true" visible="false">
+						<columns>
+							<Column width="3em">
+								<Text text="OrderId"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Material"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Currency"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Activity"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Material Group"/>
+							</Column>
+						
+							<!--<Column minScreenWidth="1370px" demandPopin="true" visible="true"/>-->
+						</columns>
+						<items >
+							<ColumnListItem>
+								<cells>
+									<Text text="{OrderId}"/>
+									<Text text="{Material}"/>
+									<Text text="{Currency}"/>
+									<Text text="{Activity}"/>
+									<Text text="{MatlGroup}"/>
+								
+								
+									</cells>
+								</ColumnListItem>
+								</items>
+							</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

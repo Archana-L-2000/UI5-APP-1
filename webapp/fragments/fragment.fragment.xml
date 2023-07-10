@@ -1,0 +1,73 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" >
+	<Dialog resizable="true" id="details_dialog" class="sapUiContentPadding"  afterClose="onClose">
+	<!--	<content>-->
+			
+				<core:Icon src="sap-icon://decline" press="handleShowDialogClose" ></core:Icon>
+				
+		 	<Table id="details" items="{/}">
+						<columns>
+							<Column width="1em">
+								<Text text="Orderid"/>
+							</Column>
+							<Column width="1em">
+								<Text text="OrderType"/>
+							</Column>
+							<Column width="1em">
+								<Text text="BusArea"/>
+							</Column>
+							<Column width="1em">
+								<Text text="MnWkCtr"/>
+							</Column>
+							<Column width="1em">
+								<Text text="Plangroup"/>
+							</Column>
+							<Column width="1em">
+								<Text text="FunctLoc"/>
+							</Column>
+							<Column width="1em">
+								<Text text="Equipment"/>
+							</Column>
+							<Column width="1rem" >
+								<Text text="Details"/>
+							</Column>
+							<Column minScreenWidth="1370px" demandPopin="true" visible="true"/>
+						</columns>
+						<items >
+							<ColumnListItem>
+								<cells>
+									<Text text="{Orderid}"/>
+									<Text text="{OrderType}"/>
+									<Text text="{Planplant}"/>
+									<Text text="{BusArea}"/>
+									<Text text="{MnWkCtr}"/>
+									<Text text="{Plant}"/>
+									<Text text="{FunctLoc}"/>
+									<!--<core:Icon src="sap-icon://expand"  press="onFragment" ></core:Icon>-->
+									<Button text ="More"  type="Default" press="onMoreDet"/>
+											</cells>
+											</ColumnListItem>
+										
+										</items>
+										</Table>
+				
+		<!--		<List-->
+  <!--  noDataText="No Products Found"-->
+   
+   
+  <!--  items="{-->
+  <!--    path: '/order_details'-->
+  <!--  }" >-->
+  <!--  <StandardListItem-->
+  <!--    title="{Orderid}"-->
+  <!--    description="{OrderType}" -->
+     
+  <!--    type="Active" />-->
+  <!--</List>-->
+									
+									
+		<!--</content>-->
+		<endButton>
+			<Button text="Close" press="onCloseDialog"/>
+			</endButton>
+	</Dialog>
+	</core:FragmentDefinition>

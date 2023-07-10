@@ -1,0 +1,248 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ARCH_PM_UI5ARCH_PM_UI5.controller.view5"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" displayBlock="true">
+	<App>
+		<pages>
+			<Page title="Notification Details" showNavButton="true" navButtonPress="OnBack" id="page" enableScrolling="true" class="page">
+				<content>
+					<f:SimpleForm id="SimpleFormToolbar" editable="true" layout="ResponsiveGridLayout"  labelSpanXL="4" labelSpanL="3" labelSpanM="4"
+						labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2"
+						singleContainerFullSize="false" ariaLabelledBy="Title1">
+			<!--			<f:SimpleForm id="SimpleFormToolbar"-->
+			<!--editable="true"-->
+			<!--layout="ResponsiveGridLayout"-->
+			<!--title="Address"-->
+			<!--labelSpanXL="4"-->
+			<!--labelSpanL="4"-->
+			<!--labelSpanM="4"-->
+			<!--labelSpanS="12"-->
+			<!--adjustLabelSpan="false"-->
+			<!--emptySpanXL="0"-->
+			<!--emptySpanL="0"-->
+			<!--emptySpanM="0"-->
+			<!--emptySpanS="0"-->
+			<!--columnsXL="3"-->
+			<!--columnsL="2"-->
+			<!--columnsM="2"-->
+			<!--singleContainerFullSize="false" >-->
+			
+						<f:content>
+						
+											<core:Title text="Details" />
+						<Label id="notiid" text="Notification No"/>
+						<Text id="name" text="{NotifNo}" class='input'/>
+						<Label id="plant" text="Created By"  />
+					<Text id="n" text="{CreatedBy}" class='input'/>
+						<Label id="bd" text="Notification Date" />
+					<Text id="n1" text="{path:'NotifDate', type: 'sap.ui.model.type.Date', formatOptions: {
+source: {
+pattern: 'yyyy/MM/dd'
+}}}" class='input'/>
+						<Label id="start" text="Notification Time"  />
+					<Text id="n12" text="{path:'Notiftime',type:'sap.ui.model.type.Time',formatOptions: {
+source: {
+pattern: 'kk:mm:ss a'
+}}}" class='input'/>
+						<core:Title text="" />
+						<Label id="stop" text="Object Number" />
+						<Text  text="{ObjectNo}" class='input'/>
+					
+						<Label id="unit" text="Priority Type"  />
+						<Text  text="{Priotype}" class='input'/>
+						<Label id="plangrp" text="Notification Type"  />
+						<Text  text="{path:'NotifType'}" class='input'/>
+						<Label id="desp" text="Description" />
+						<Text  text="{ShortText}" class='input'/>
+				
+						</f:content>
+						 
+					</f:SimpleForm>
+						<TileContainer id="container" tileDelete="handleTileDelete" tiles="">
+						<StandardTile icon="Images/notification-right.png" number="" numberUnit="" title="" info=" GET CAUSE" press="onNotiCause" class="press"/>
+						<StandardTile icon="Images/notification-right.png" number="" numberUnit="" title="" info="GET ITEMS" press="onNotiItem" class="press noti-item"/>
+						<StandardTile icon="Images/notification-right.png" number="" numberUnit="" title="" info=" GET PARTNER" press="onNotiPartner" class="press" />
+						<StandardTile icon="Images/notification-right.png" number="" numberUnit="" title="" info="GET TASKS" press="onNotiTask" class="noti-task" />
+						
+					</TileContainer>
+						<core:Fragment   fragmentName="ARCH_PM_UI5ARCH_PM_UI5.fragments.fragment" type="XML" />
+						<Table id="noti-item" items="{/}" inset="true" visible="false">
+						<columns>
+							<Column width="3em">
+								<Text text="Assembly"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Long Text"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Text Code"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Notification No"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text=" Text Group Code"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Text Object Code "/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Classification"/>
+							</Column>
+							<Column width="3rem" demandPopin="true">
+								<Text text="Classification Type"/>
+							</Column>
+							<!--<Column minScreenWidth="1370px" demandPopin="true" visible="true"/>-->
+						</columns>
+						<items >
+							<ColumnListItem>
+								<cells>
+									<Text text="{Assembly}"/>
+									<Text text="{LongText}"/>
+									<Text text="{TxtProbcd}"/>
+									<Text text="{NotifNo}"/>
+									<Text text="{TxtGrpcd}"/>
+									<Text text="{TxtObjptcd}"/>
+									<Text text="{Classif}"/>
+									<Text text="{ClassType}"/>
+								
+									</cells>
+								</ColumnListItem>
+								</items>
+							</Table>
+							<Table id="noti-task" items="{/}" inset="true" visible="false">
+						<columns>
+							<Column width="3em">
+								<Text text="ObjectNo"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Task catogory Type"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Task Code Group"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="TaskCode"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="NotifNo"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="TaskText"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="CreatedBy"/>
+							</Column>
+							<Column width="3rem" demandPopin="true">
+								<Text text="Partner"/>
+							</Column>
+							<!--<Column minScreenWidth="1370px" demandPopin="true" visible="true"/>-->
+						</columns>
+						<items >
+							<ColumnListItem>
+								<cells>
+									<Text text="{ObjectNo}"/>
+									<Text text="{TaskCatTyp}"/>
+									<Text text="{TaskCodegrp}"/>
+									<Text text="{TaskCode}"/>
+									<Text text="{NotifNo}"/>
+									<Text text="{TaskText}"/>
+									<Text text="{CreatedBy}"/>
+									<Text text="{Partner}"/>
+								
+									</cells>
+								</ColumnListItem>
+								</items>
+							</Table>
+							<Table id="noti-partnr" items="{/}" inset="true" visible="false">
+						<columns>
+							<Column width="3em">
+								<Text text="ObjectNo"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Partner"/>
+							</Column>
+								<Column width="3em" demandPopin="true">
+								<Text text="Origin"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Created Date"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="CreatedBy"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Partner Role"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="ObjectType"/>
+							</Column>
+						
+							<Column width="3rem" demandPopin="true">
+								<Text text="PosTime"/>
+							</Column>
+							<!--<Column minScreenWidth="1370px" demandPopin="true" visible="true"/>-->
+						</columns>
+						<items >
+							<ColumnListItem>
+								<cells>
+									<Text text="{ObjectNo}"/>
+									<Text text="{Partner}"/>
+									<Text text="{Origin}"/>
+									<Text text="{CreatDate}"/>
+									<Text text="{CreatedBy}"/>
+									<Text text="{PartnRole}"/>
+									<Text text="{ObjectType}"/>
+									<Text text="{PosTime}"/>
+								
+									</cells>
+								</ColumnListItem>
+								</items>
+							</Table>
+							<Table id="noti-cause" items="{/}" inset="true" visible="false">
+						<columns>
+							<Column width="3em">
+								<Text text="NotifNo"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="CreatedDate"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="ChangedBy"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Causetext"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="CauseCodegrp"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Cause Catogory Type"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="CauseCode"/>
+							</Column>
+							<Column width="3rem" demandPopin="true">
+								<Text text="LongText"/>
+							</Column>
+							<!--<Column minScreenWidth="1370px" demandPopin="true" visible="true"/>-->
+						</columns>
+						<items >
+							<ColumnListItem>
+								<cells>
+									<Text text="{NotifNo}"/>
+									<Text text="{CreatedDate}"/>
+									<Text text="{ChangedBy}"/>
+									<Text text="{Causetext}"/>
+									<Text text="{CauseCodegrp}"/>
+									<Text text="{CauseCatTyp}"/>
+									<Text text="{CauseCode}"/>
+									<Text text="{LongText}"/>
+								
+									</cells>
+								</ColumnListItem>
+								</items>
+							</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,79 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ARCH_PM_UI5ARCH_PM_UI5.controller.view3"
+	xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true">
+	<App id="app">
+		<pages>
+			<Page title="List of Notifications" showNavButton="true" navButtonPress="OnBack" id="page"  class="page" enableScrolling="false" >
+				<content>
+				
+						<html:div class="flex">
+						<html:h3>Filter</html:h3 >
+			<DatePicker id="dateId" placeholder="Get Data Between Start Date" width="20%" />
+					
+						<DatePicker id="dateGt" placeholder="Get Data Between End Date"  width="20%"/>
+			<Button text="Get Filter"  press="onSearch" width="10%" class="btn"/>
+						<Button text="Reset Filter"  press="onReset" width="10%" class="btn"/>
+							</html:div>
+							  <FlexBox
+        alignItems="Center"
+        justifyContent="Center">	
+							<Button text="GET NOTIFICATION DETAILS"  class="btn" type="Default" press="onNotiDet"/>	
+							</FlexBox>
+							
+					<ScrollContainer vertical="true" focusable="true" height="95%">
+					<Table id="Table" items="{/results}" inset="true" mode="SingleSelectMaster" growing="true" growingThreshold="5">
+						<columns>
+							<Column width="3em" demandPopin="true">
+								<Text text="Priority"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Notificat"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="NotifType"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Function Location"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Equipment"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Notifdate"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Notiftime"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Description"/>
+							</Column>
+							<Column width="3rem" demandPopin="true">
+								<Text text="System Status"/>
+							</Column>
+							<Column minScreenWidth="1370px" demandPopin="true" visible="true"/>
+						</columns>
+						<items >
+							<ColumnListItem>
+								<cells>
+									<Text text="{Priority}" class='input'/>
+									<Text text="{Notificat}" class='input'/>
+									<Text text="{NotifType}" class='input'/>
+									<Text text="{Funcloc}" class='input'/>
+									<Text text="{Equipment}" class='input'/>
+								<Text id="n1" text="{path:'Notifdate', type: 'sap.ui.model.type.Date', formatOptions: {
+
+pattern: 'dd-MM-yyyy'
+}}" class='input'/>
+<Text text="{ path:'Notiftime', type: 'sap.ui.model.type.Time', formatOptions: { source: { pattern: 'KK:mm:ss a' }}}" class='input'/>
+									<Text text="{Descript}" class='input'/>
+							
+									<Text text="{SStatus}" class='input'/>
+									</cells>
+								</ColumnListItem>
+								</items>
+							</Table>
+								</ScrollContainer>
+						</content>
+					</Page>
+				</pages>
+			</App>
+		</mvc:View>

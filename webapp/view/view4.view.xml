@@ -1,0 +1,142 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ARCH_PM_UI5ARCH_PM_UI5.controller.view4"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:t="sap.m.Table">
+	
+	<App>
+		<pages>
+			<Page title="List of WorkOrders" showNavButton="true" navButtonPress="OnBack" id="page" enableScrolling="false" class="page">
+				<content>
+					
+					
+						<html:div class="flex">
+							
+						<html:h3>Filters</html:h3 >
+			<DatePicker id="dateId" placeholder="Get Data Between Start Date" width="20%" />
+					
+						<DatePicker id="dateGt" placeholder="Get Data Between End Date"  width="20%"/>
+			<Button text="Get Filter"  press="onSearch" width="10%" class="btn"/>
+						<Button text="Reset Filter"  press="onReset" width="10%" class="btn"/>
+						
+					
+							</html:div>
+						  <FlexBox
+        alignItems="Center"
+        justifyContent="Center">		
+					
+							<Button text="GET WORKORDER DETAILS"  type="Default" press="onworkDetails" class="btn"/>
+						</FlexBox>
+						
+				<!--	<Table id="Table" items="{/results}" selectionChange="handleSelectionChange" mode="SingleSelect"-->
+    <!--inset="false">-->
+				<!--		<columns>-->
+				<!--			<Column width="3em">-->
+				<!--				<Text text="ORDER ID"/>-->
+				<!--			</Column>-->
+				<!--			<Column width="3em">-->
+				<!--				<Text text="ACTIVITY"/>-->
+				<!--			</Column>-->
+				<!--			<Column width="3em">-->
+				<!--				<Text text="CONTROL KEY"/>-->
+				<!--			</Column>-->
+				<!--			<Column width="3em">-->
+				<!--				<Text text="WORKCENTER"/>-->
+				<!--			</Column>-->
+				<!--			<Column width="3em">-->
+				<!--				<Text text="PLANT ID"/>-->
+				<!--			</Column>-->
+				<!--			<Column width="3em">-->
+				<!--				<Text text="DESCRIPTION"/>-->
+				<!--			</Column>-->
+				<!--			<Column width="3em">-->
+				<!--				<Text text="STATUS"/>-->
+				<!--			</Column>-->
+				<!--			<Column width="3rem" >-->
+				<!--				<Text text="DETAILS"/>-->
+				<!--			</Column>-->
+				<!--			<Column minScreenWidth="1370px" demandPopin="true" visible="true"/>-->
+				<!--		</columns>-->
+				<!--		<items >-->
+				<!--			<ColumnListItem >-->
+				<!--				<cells>-->
+				<!--					<Text text="{Orderid}" id="order"/>-->
+				<!--					<Text text="{Activity}"/>-->
+				<!--					<Text text="{ControlKey}"/>-->
+				<!--					<Text text="{WorkCntr}"/>-->
+				<!--					<Text text="{Plant}"/>-->
+				<!--					<Text text="{Description}"/>-->
+				<!--					<Text text="{SStatus}"/>-->
+									<!--<core:Icon src="sap-icon://expand"   ></core:Icon>-->
+				<!--					<Button text="Details" press="onworkDetails" />-->
+						<!--<Button text="get detail please" press="workorderDetails"/>-->
+				<!--		<core:Icon  src="sap-icon://notification-2" press="workorderDetails" width="50px" height="50px"></core:Icon>-->
+				<!--					</cells>-->
+				<!--				</ColumnListItem>-->
+				<!--				</items>-->
+				<!--			</Table>-->
+			
+				<ScrollContainer vertical="true" focusable="true" height="95%">
+				<Table id="Table" items="{/results}" inset="true" mode="SingleSelectMaster" class="input" growing="true" growingThreshold="5">
+						<columns>
+							<Column width="3em" demandPopin="true" class="input">
+								<Text text="Order ID"/>
+							</Column>
+							<Column width="3em" demandPopin="true" class="input">
+								<Text text="ControlKey"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Function Location"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Work Center"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Notification Date"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Description"/>
+							</Column>
+							<Column width="3em" demandPopin="true">
+								<Text text="Notiftime"/>
+							</Column>
+							<Column width="3rem" demandPopin="true">
+								<Text text="System Status"/>
+							</Column>
+							<Column minScreenWidth="1370px" demandPopin="true" visible="true"/>
+						</columns>
+						<items >
+							 <!--pattern: 'yyyy/MM/dd'-->
+							<ColumnListItem>
+								<cells class="input">
+									<Text text="{Orderid}" class="input"/>
+									<Text text="{ControlKey}" class="input"/>
+									<Text text="{Funcloc}" class="input"/>
+									<Text text="{WorkCntr}" class="input"/>
+									<!--<Text text="{-->
+				     <!--   path: '/EarlSchedFinishDate',-->
+				     <!--   type: 'sap.ui.model.type.Date',-->
+				     <!--   formatOptions: {-->
+				     <!--   source:{-->
+				       
+				     <!--    pattern: 'yyyy/MM/dd'-->
+				     <!--    }-->
+				     <!--   }-->
+				     <!-- }"  class="input"/>-->
+				    <Text id="n1" text="{path:'EarlSchedFinishDate', type: 'sap.ui.model.type.Date', formatOptions: {
+
+pattern: 'dd-MM-yyyy'
+}}" class='input'/>
+									<Text text="{Description}" class="input"/>
+									  <!--<Text text="{ path:'ActualStartTime', type: 'sap.ui.model.type.Time', formatOptions: { source:{pattern: 'hh-mm-ss' }}}"/>-->
+									  <Text text="{ path:'ActualStartTime', type: 'sap.ui.model.type.Time', formatOptions: { source: { pattern: 'KK:mm:ss a' }}}" class="input"/>
+								<Text text="{SStatus}" class="input"/>
+								</cells>
+								</ColumnListItem>
+								</items>
+							</Table>
+								</ScrollContainer>
+								
+				</content>
+			</Page>
+		</pages>
+	</App>
+	<core:Fragment   fragmentName="ARCH_PM_UI5ARCH_PM_UI5.fragments.fragment" type="XML" />
+</mvc:View>

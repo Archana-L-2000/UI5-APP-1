@@ -1,0 +1,45 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.ui.core.TextAlign.Center" controllerName="ARCH_PM_UI5ARCH_PM_UI5.controller.View1" displayBlock="true">
+	<App id="app">
+		<pages>
+			<Page id="page" title="Maintanance Portal Login" class=" page container">
+				<!---binding="{/ZPM_LOGINSet('1001')}"-->
+<!--class="page" -->
+				<content>
+					<html:center><html:h1>
+						MAINTENANCE PORTAL LOGIN
+					</html:h1></html:center>
+					<!--<f:SimpleForm id="SimpleFormToolbar" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4"-->
+					<!--	labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1"-->
+					<!--	singleContainerFullSize="false" ariaLabelledBy="Title1" class="form">-->
+					<html:form class="form">
+						<html:hr/>
+						<html:img src="Images/Kaar_Logo.png" class="img"/>
+							<html:hr/>
+						<Label id="uname" text="Username" class='input'/>
+						<Input id="name"  class='input' value=""/>
+							<html:hr/>
+						<Label id="passwd" text="Password" class='input'/>
+						
+						<Input id="pass"  class='input' type="Password" value=""/>
+							<html:hr/>
+						<Button text="Submit" width="100px"  press="onsubmit"/>
+						
+					</html:form>
+						
+					<!--</f:SimpleForm>-->
+					<!--<Bar id="bar0" translucent="false" design="Header">-->
+					<!--	<contentMiddle>-->
+					<!--		<Button text="Submit" width="100px"  press="onsubmit" class="btn"/>-->
+					<!--	</contentMiddle>-->
+					<!--</Bar>-->
+					<!--<Bar translucent="false" design="Header">-->
+					<!--	<contentMiddle>-->
+					<!--		<Button text="next page" width="100px" type="Default" press="OnNext" class="myButtonStyle"/>-->
+					<!--	</contentMiddle>-->
+					<!--</Bar>-->
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
